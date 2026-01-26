@@ -1,0 +1,12 @@
+[project]
+name = "mlb-stats-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.1.0",
+    "mlb-statsapi>=1.9.0",
+    "pymlb-statsapi>=1.4.3",
+    "python-mlb-statsapi>=0.7.1",
+]
