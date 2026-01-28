@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.12"
 
 [[package]]
@@ -337,6 +337,7 @@ dependencies = [
     { name = "mlb-statsapi" },
     { name = "pymlb-statsapi" },
     { name = "python-mlb-statsapi" },
+    { name = "pytz" },
     { name = "pywin32" },
 ]
 
@@ -346,6 +347,7 @@ requires-dist = [
     { name = "mlb-statsapi", specifier = ">=1.9.0" },
     { name = "pymlb-statsapi", specifier = ">=1.4.3" },
     { name = "python-mlb-statsapi", specifier = ">=0.7.1" },
+    { name = "pytz", specifier = ">=2025.2" },
     { name = "pywin32", specifier = ">=311" },
 ]
 
@@ -606,6 +608,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/55/71/9b443b3e48d76c885a7b2930222f65d9aefe60f3a558dd060e32ee0638bf/python_mlb_statsapi-0.7.1.tar.gz", hash = "sha256:623e72b7f639976166a00c35e3260d19ac0dec8a3cace67e9aa268f51cb0116c", size = 61044, upload-time = "2026-01-14T03:32:32.902Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/93/4a/4bc7228fba9fc4d43ca3b47ee5d6a477ce25d48b3f55863c003a08653c97/python_mlb_statsapi-0.7.1-py3-none-any.whl", hash = "sha256:a662d1c6a88df7e1263fae77ba3d5ad011bf201c6ac443157603c5e9238ef51f", size = 89170, upload-time = "2026-01-14T03:32:31.425Z" },
+]
+
+[[package]]
+name = "pytz"
+version = "2025.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz", hash = "sha256:360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3", size = 320884, upload-time = "2025-03-25T02:25:00.538Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/81/c4/34e93fe5f5429d7570ec1fa436f1986fb1f00c3e0f43a589fe2bbcd22c3f/pytz-2025.2-py2.py3-none-any.whl", hash = "sha256:5ddf76296dd8c44c26eb8f4b6f35488f3ccbf6fbbd7adee0b7262d43f0ec2f00", size = 509225, upload-time = "2025-03-25T02:24:58.468Z" },
 ]
 
 [[package]]

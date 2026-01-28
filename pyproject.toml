@@ -9,5 +9,6 @@ dependencies = [
     "mlb-statsapi>=1.9.0",
     "pymlb-statsapi>=1.4.3",
     "python-mlb-statsapi>=0.7.1",
+    "pytz>=2025.2",
     "pywin32>=311",
 ]
