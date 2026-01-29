@@ -1,0 +1,800 @@
+[
+	{
+		"endpoint": "divisions",
+		"url": "https://statsapi.mlb.com/api/v1/divisions",
+		"params": [
+			{
+				"paramName": "divisionId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "leagueId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": false
+			}
+		]
+	},
+	{
+		"endpoint": "game",
+		"url": "https://statsapi.mlb.com/api/v1/game/{gameId}/feed/live",
+		"params": [
+			{ "paramName": "gameId", "paramType": "path", "isRequired": true },
+			{
+				"paramName": "timecode",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "gameBoxscore",
+		"url": "https://statsapi.mlb.com/api/v1/game/{gameId}/boxscore",
+		"params": [
+			{ "paramName": "gameId", "paramType": "path", "isRequired": true },
+			{
+				"paramName": "timecode",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "gameLinescore",
+		"url": "https://statsapi.mlb.com/api/v1/game/{gameId}/linescore",
+		"params": [
+			{ "paramName": "gameId", "paramType": "path", "isRequired": true },
+			{
+				"paramName": "timecode",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "gamePlayByPlay",
+		"url": "https://statsapi.mlb.com/api/v1/game/{gameId}/playByPlay",
+		"params": [
+			{ "paramName": "gameId", "paramType": "path", "isRequired": true },
+			{
+				"paramName": "timecode",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "league",
+		"url": "https://statsapi.mlb.com/api/v1/league",
+		"params": [
+			{
+				"paramName": "leagueIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "seasons",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "people",
+		"url": "https://statsapi.mlb.com/api/v1/people",
+		"params": [
+			{
+				"paramName": "personIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "players",
+		"url": "https://statsapi.mlb.com/api/v1/sports/1/players",
+		"params": [
+			{ "paramName": "season", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "gameType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "player",
+		"url": "https://statsapi.mlb.com/api/v1/people/{playerId}",
+		"params": [
+			{
+				"paramName": "playerId",
+				"paramType": "path",
+				"isRequired": true
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "playerStats",
+		"url": "https://statsapi.mlb.com/api/v1/people/{playerId}/stats?stats={statsType}",
+		"params": [
+			{ "paramName": "playerId", "paramType": "path", "isRequired": true },
+			{ "paramName": "statsType", "paramType": "query", "isRequired": true },
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "jobs",
+		"url": "https://statsapi.mlb.com/api/v1/jobs",
+		"params": [
+			{
+				"paramName": "jobType",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{ "paramName": "date", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "scheduleCurrentDay",
+		"url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1",
+		"params": [
+			{ "paramName": "gameId", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "gameIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{ "paramName": "date", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "endDate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "eventTypes",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "gameTypes",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "leagueId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "opponentId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "scheduleType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "startDate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "teamId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "venueIds",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "seasons",
+		"url": "https://statsapi.mlb.com/api/v1/seasons{all}",
+		"params": [
+			{ "paramName": "all", "paramType": "path", "isRequired": false },
+			{
+				"paramName": "divisionId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "leagueId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "season",
+		"url": "https://statsapi.mlb.com/api/v1/seasons/{seasonId}",
+		"params": [
+			{
+				"paramName": "seasonId",
+				"paramType": "path",
+				"isRequired": true
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "standings",
+		"url": "https://statsapi.mlb.com/api/v1/standings",
+		"params": [
+			{
+				"paramName": "leagueId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{ "paramName": "date", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "standingsTypes",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "stats",
+		"url": "https://statsapi.mlb.com/api/v1/stats",
+		"params": [
+			{ "paramName": "group", "paramType": "query", "isRequired": true },
+			{ "paramName": "stats", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "endDate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "gameType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "leagueId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "limit", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "metrics",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "offset",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "order", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "personId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "playerPool",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "position",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sortStat",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportIds",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "startDate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "teamId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "statsLeaders",
+		"url": "https://statsapi.mlb.com/api/v1/stats/leaders",
+		"params": [
+			{
+				"paramName": "leaderCategories",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "leaderGameTypes",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "leagueId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "limit", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "playerPool",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "statGroup",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "statType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "statsStreaks",
+		"url": "https://statsapi.mlb.com/api/v1/stats/streaks",
+		"params": [
+			{ "paramName": "limit", "paramType": "query", "isRequired": true },
+			{ "paramName": "season", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "streakSpan",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "streakType",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "gameType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teams",
+		"url": "https://statsapi.mlb.com/api/v1/teams",
+		"params": [
+			{
+				"paramName": "activeStatus",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "gameType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "leagueIds",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportIds",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamsAffiliates",
+		"url": "https://statsapi.mlb.com/api/v1/teams/affiliates",
+		"params": [
+			{
+				"paramName": "teamIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamsHistory",
+		"url": "https://statsapi.mlb.com/api/v1/teams/history",
+		"params": [
+			{
+				"paramName": "teamIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "endSeason",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "startSeason",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamsStats",
+		"url": "https://statsapi.mlb.com/api/v1/teams/stats",
+		"params": [
+			{ "paramName": "group", "paramType": "query", "isRequired": true },
+			{ "paramName": "season", "paramType": "query", "isRequired": true },
+			{ "paramName": "stats", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "endDate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "gameType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "order", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "sortStat",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportIds",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "startDate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "team",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportId",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamAlumni",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}/alumni",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{ "paramName": "season", "paramType": "query", "isRequired": true },
+			{ "paramName": "group", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamCoaches",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}/coaches",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{ "paramName": "date", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamPersonnel",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}/personnel",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{ "paramName": "date", "paramType": "query", "isRequired": false },
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamLeaders",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}/leaders",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{
+				"paramName": "leaderCategories",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{ "paramName": "season", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "leaderGameTypes",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "limit", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamRoster",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}/roster",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{ "paramName": "date", "paramType": "query", "isRequired": false },
+			{
+				"paramName": "rosterType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamStats",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}/stats",
+		"params": [
+			{ "paramName": "teamId", "paramType": "path", "isRequired": true },
+			{ "paramName": "group", "paramType": "query", "isRequired": true },
+			{ "paramName": "season", "paramType": "query", "isRequired": true },
+			{
+				"paramName": "gameType",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sitCodes",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "sportIds",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "stats", "paramType": "query", "isRequired": false },
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "teamUniforms",
+		"url": "https://statsapi.mlb.com/api/v1/uniforms/team",
+		"params": [
+			{
+				"paramName": "teamIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "venue",
+		"url": "https://statsapi.mlb.com/api/v1/venues",
+		"params": [
+			{
+				"paramName": "venueIds",
+				"paramType": "query",
+				"isRequired": true
+			},
+			{
+				"paramName": "season",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{
+				"paramName": "hydrate",
+				"paramType": "query",
+				"isRequired": false
+			},
+			{ "paramName": "fields", "paramType": "query", "isRequired": false }
+		]
+	},
+	{
+		"endpoint": "meta",
+		"url": "https://statsapi.mlb.com/api/v1/{type}",
+		"params": [
+			{ "paramName": "type", "paramType": "path", "isRequired": true }
+		]
+	}
+]

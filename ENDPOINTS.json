@@ -1,0 +1,54 @@
+[
+	{
+		"endpoint": "meta",
+		"url": "https://statsapi.mlb.com/api/v1/{dataType}"
+	},
+	{
+		"endpoint": "seasons",
+		"url": "https://statsapi.mlb.com/api/v1/seasons/all?sportId=1"
+	},
+	{
+		"endpoint": "season",
+		"url": "https://statsapi.mlb.com/api/v1/seasons/{seasonId}?sportId=1"
+	},
+	{
+		"endpoint": "leagues",
+		"url": "https://statsapi.mlb.com/api/v1/leagues?sportId=1&leagueIds=103,104,114,115"
+	},
+	{
+		"endpoint": "league",
+		"url": "https://statsapi.mlb.com/api/v1/leagues/{leagueId}"
+	},
+	{
+		"endpoint": "divisions",
+		"url": "https://statsapi.mlb.com/api/v1/divisions?sportId=1"
+	},
+	{
+		"endpoint": "division",
+		"url": "https://statsapi.mlb.com/api/v1/divisions/{divisionId}"
+	},
+	{
+		"endpoint": "teams",
+		"url": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+	},
+	{
+		"endpoint": "team",
+		"url": "https://statsapi.mlb.com/api/v1/teams/{teamId}"
+	},
+	{
+		"endpoint": "players",
+		"url": "https://statsapi.mlb.com/api/v1/sports/1/players"
+	},
+	{
+		"endpoint": "player",
+		"url": "https://statsapi.mlb.com/api/v1/people/{playerId}"
+	},
+	{
+		"endpoint": "schedule",
+		"url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1"
+	},
+	{
+		"endpoint": "game",
+		"url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk={gameId}"
+	}
+]
