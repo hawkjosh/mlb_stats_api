@@ -1,328 +1,84 @@
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2025&hydrate=hydrations&fields=hydrations
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=team
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=tickets
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(all))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(media(all)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(editorial(all)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(all)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(editorial(preview)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(editorial(recap)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(editorial(articles)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(editorial(wrap)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(media(epg)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(media(milestones)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(scoreboard)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(scoreboardPreview)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(highlights)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(gamecenter)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(milestone)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(highlights(live)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(media(featured)))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(summary))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(content(gamenotes))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(tickets)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(atBatTickets)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(promotions)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(atBatPromotions)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(sponsorships)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=linescore
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=decisions
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=scoringplays
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=broadcasts
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=broadcasts(all)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=radioBroadcasts
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=metadata
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=seriesStatus
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(performers)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(promotions)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(timezone)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(tickets)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(venue)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(designations)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(game)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(status)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=venue
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=weather
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=gameInfo
-
-
+# ==================
+# Schedule API Calls
+# ==================
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=officials
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=hydrations
 
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=probableOfficials
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=trackingVersion
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=coachingVideo
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=team(leaders)
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=team(leaders(showOnPreview))
-
-
-###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=probablePitcher(all)
-
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=probablePitcher
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=probablePitcher(showOnPreview)
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=broadcasts
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=review
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=decisions
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(sport)
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=flags
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(league)
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=game(content(all))
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=event(division)
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=game(promotions(all))
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=linescore(positions)
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=game(tickets(all))
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=linescore(matchup)
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=gameId
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=linescore(runners)
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=gameInfo
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=lineups
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=homeRuns
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=liveLookin
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=linescore
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=flags
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=lineups
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=alerts
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=officials
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=previousPlay
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=previousPlay
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=homeRuns
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=probablePitcher
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=xrefId
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=review
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=person
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=ruleSettings
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=stats
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=scoringplays
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=probablePitcher(note)
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=seriesStatus
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=gameId
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=statusFlag
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=story
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=story
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=ruleSettings
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=team
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=absChallenge
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=trackingVersion
 
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=acsChallenge
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=venue
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=statusFlags
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=weather
 
-
 ###
-GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=weatherForecast
-
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&teamId=144&date=2026-03-27&hydrate=xrefId
 
-# ###
-# GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=team,tickets,game(content),game(content(all)),game(content(media(all))),game(content(editorial(all))),game(content(highlights(all))),game(content(editorial(preview))),game(content(editorial(recap))),game(content(editorial(articles))),game(content(editorial(wrap))),game(content(media(epg))),game(content(media(milestones))),game(content(highlights(scoreboard))),game(content(highlights(scoreboardPreview))),game(content(highlights(highlights))),game(content(highlights(gamecenter))),game(content(highlights(milestone))),game(content(highlights(live))),game(content(media(featured))),game(content(summary)),game(content(gamenotes)),game(tickets),game(atBatTickets),game(promotions),game(atBatPromotions),game(sponsorships),linescore,decisions,scoringplays,broadcasts,broadcasts(all),radioBroadcasts,metadata,seriesStatus,event(performers),event(promotions),event(timezone),event(tickets),event(venue),event(designations),event(game),event(status),venue,weather,gameInfo,officials,probableOfficials,trackingVersion,coachingVideo,team(leaders),team(leaders(showOnPreview)),probablePitcher(all),probablePitcher,probablePitcher(showOnPreview),review,event(sport),event(league),event(division),linescore(positions),linescore(matchup),linescore(runners),lineups,liveLookin,flags,alerts,previousPlay,homeRuns,xrefId,person,stats,probablePitcher(note),gameId,story,ruleSettings,absChallenge,acsChallenge,statusFlags,weatherForecast
-
-
-###
-# GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate=game(tickets),game(atBatTickets),game(promotions),game(atBatPromotions),game(sponsorships),linescore,decisions,scoringplays,broadcasts,broadcasts(all),radioBroadcasts,metadata,seriesStatus,event(performers),event(promotions),event(timezone),event(tickets),event(venue),event(designations),event(game),event(status),venue,weather,gameInfo,officials,probableOfficials,trackingVersion,coachingVideo,team(leaders),team(leaders(showOnPreview)),probablePitcher(all),probablePitcher,probablePitcher(showOnPreview),review,event(sport),event(league),event(division),linescore(positions),linescore(matchup),linescore(runners),lineups,liveLookin,flags,alerts,previousPlay,homeRuns,xrefId,person,stats,probablePitcher(note),gameId,story,ruleSettings,absChallenge,acsChallenge,statusFlags,weatherForecast
