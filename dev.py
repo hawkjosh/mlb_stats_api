@@ -1,237 +1,385 @@
-data = [
-    {
-        "springLeague": {
-            "id": 114,
-            "name": "Cactus League",
-            "link": "/api/v1/league/114",
-            "abbreviation": "CL",
-        },
-        "allStarStatus": "N",
-        "id": 133,
-        "name": "Athletics",
-        "link": "/api/v1/teams/133",
-        "season": 2026,
-        "venue": {
-            "id": 2529,
-            "name": "Sutter Health Park",
-            "link": "/api/v1/venues/2529",
-        },
-        "springVenue": {"id": 2507, "link": "/api/v1/venues/2507"},
-        "teamCode": "ath",
-        "fileCode": "ath",
-        "abbreviation": "ATH",
-        "teamName": "Athletics",
-        "locationName": "Sacramento",
-        "firstYearOfPlay": "1901",
-        "league": {"id": 103, "name": "American League", "link": "/api/v1/league/103"},
-        "division": {
-            "id": 200,
-            "name": "American League West",
-            "link": "/api/v1/divisions/200",
-        },
-        "sport": {"id": 1, "link": "/api/v1/sports/1", "name": "Major League Baseball"},
-        "shortName": "Athletics",
-        "franchiseName": "Athletics",
-        "clubName": "Athletics",
-        "active": True,
-    },
-    {
-        "springLeague": {
-            "id": 115,
-            "name": "Grapefruit League",
-            "link": "/api/v1/league/115",
-            "abbreviation": "GL",
-        },
-        "allStarStatus": "N",
-        "id": 134,
-        "name": "Pittsburgh Pirates",
-        "link": "/api/v1/teams/134",
-        "season": 2026,
-        "venue": {"id": 31, "name": "PNC Park", "link": "/api/v1/venues/31"},
-        "springVenue": {"id": 2526, "link": "/api/v1/venues/2526"},
-        "teamCode": "pit",
-        "fileCode": "pit",
-        "abbreviation": "PIT",
-        "teamName": "Pirates",
-        "locationName": "Pittsburgh",
-        "firstYearOfPlay": "1882",
-        "league": {"id": 104, "name": "National League", "link": "/api/v1/league/104"},
-        "division": {
-            "id": 205,
-            "name": "National League Central",
-            "link": "/api/v1/divisions/205",
-        },
-        "sport": {"id": 1, "link": "/api/v1/sports/1", "name": "Major League Baseball"},
-        "shortName": "Pittsburgh",
-        "franchiseName": "Pittsburgh",
-        "clubName": "Pirates",
-        "active": True,
-    },
-    {
-        "springLeague": {
-            "id": 114,
-            "name": "Cactus League",
-            "link": "/api/v1/league/114",
-            "abbreviation": "CL",
-        },
-        "allStarStatus": "N",
-        "id": 135,
-        "name": "San Diego Padres",
-        "link": "/api/v1/teams/135",
-        "season": 2026,
-        "venue": {"id": 2680, "name": "Petco Park", "link": "/api/v1/venues/2680"},
-        "springVenue": {"id": 2530, "link": "/api/v1/venues/2530"},
-        "teamCode": "sdn",
-        "fileCode": "sd",
-        "abbreviation": "SD",
-        "teamName": "Padres",
-        "locationName": "San Diego",
-        "firstYearOfPlay": "1968",
-        "league": {"id": 104, "name": "National League", "link": "/api/v1/league/104"},
-        "division": {
-            "id": 203,
-            "name": "National League West",
-            "link": "/api/v1/divisions/203",
-        },
-        "sport": {"id": 1, "link": "/api/v1/sports/1", "name": "Major League Baseball"},
-        "shortName": "San Diego",
-        "franchiseName": "San Diego",
-        "clubName": "Padres",
-        "active": True,
-    },
-    {
-        "springLeague": {
-            "id": 114,
-            "name": "Cactus League",
-            "link": "/api/v1/league/114",
-            "abbreviation": "CL",
-        },
-        "allStarStatus": "N",
-        "id": 136,
-        "name": "Seattle Mariners",
-        "link": "/api/v1/teams/136",
-        "season": 2026,
-        "venue": {"id": 680, "name": "T-Mobile Park", "link": "/api/v1/venues/680"},
-        "springVenue": {"id": 2530, "link": "/api/v1/venues/2530"},
-        "teamCode": "sea",
-        "fileCode": "sea",
-        "abbreviation": "SEA",
-        "teamName": "Mariners",
-        "locationName": "Seattle",
-        "firstYearOfPlay": "1977",
-        "league": {"id": 103, "name": "American League", "link": "/api/v1/league/103"},
-        "division": {
-            "id": 200,
-            "name": "American League West",
-            "link": "/api/v1/divisions/200",
-        },
-        "sport": {"id": 1, "link": "/api/v1/sports/1", "name": "Major League Baseball"},
-        "shortName": "Seattle",
-        "franchiseName": "Seattle",
-        "clubName": "Mariners",
-        "active": True,
-    },
-]
+from datetime import datetime, timedelta
+import json
+from pytz import timezone as tz
+import requests
+from functools import lru_cache
 
-from pprint import pprint as pp
+import statsapi
 
-# team = data[0]
+BASE_URL: str = "https://statsapi.mlb.com/api/v1"
+CURR_SEASON: str = str(datetime.now().year)
 
 
-teams = []
+def getData(endpoint: str, **kwargs) -> dict:
+    queryParams: str = (
+        f"&{'&'.join(f'{k}={v}' for k, v in kwargs.items())}" if kwargs else ""
+    )
+    url = f"{BASE_URL}/{endpoint}?sportId=1&season={CURR_SEASON}{queryParams}"
+    return requests.get(url).json()
 
-for team in data:
-    springLeague = team.get('springLeague', {})
-    springLeague_id = springLeague.get('id')
-    springLeague_name = springLeague.get('name')
-    springLeague_link = springLeague.get('link')
-    springLeague_abbreviation = springLeague.get('abbreviation')
 
-    allStarStatus = team.get('allStarStatus')
-    teamId = team.get('id')
-    name = team.get('name')
-    teamLink = team.get('link')
-    season = team.get('season')
+@lru_cache(maxsize=1)
+def _teamsIndex() -> dict:
+    index = {}
+    for team in getData("teams").get("teams", []):
+        aliases = {
+            team.get("name"),
+            team.get("teamName"),
+            team.get("abbreviation"),
+            team.get("shortName"),
+            team.get("locationName"),
+        }
+        teamId = team.get("id")
+        for alias in aliases:
+            if alias:
+                index[alias.lower()] = teamId
+    return index
 
-    venue = team.get('venue', {})
-    venue_id = venue.get('id')
-    venue_name = venue.get('name')
-    venue_link = venue.get('link')
 
-    springVenue = team.get('springVenue', {})
-    springVenue_id = springVenue.get('id')
-    springVenue_link = springVenue.get('link')
+def getTeamId(teamName: str) -> int | None:
+    return _teamsIndex().get(teamName.lower())
 
-    teamCode = team.get('teamCode')
-    fileCode = team.get('fileCode')
-    teamAbbreviation = team.get('abbreviation')
-    teamName = team.get('teamName')
-    locationName = team.get('locationName')
-    firstYearOfPlay = team.get('firstYearOfPlay')
 
-    league = team.get('league', {})
-    league_id = league.get('id')
-    league_name = league.get('name')
-    league_link = league.get('link')
+@lru_cache(maxsize=1)
+def _playersIndex() -> dict:
+    players = (
+        requests.get("https://statsapi.mlb.com/api/v1/sports/1/players")
+        .json()
+        .get("people", [])
+    )
+    index = {}
+    for player in players:
+        aliases = {
+            player.get("firstLastName"),
+            player.get("lastFirstName"),
+        }
+        playerId = player.get("id")
+        for alias in aliases:
+            if alias:
+                index[alias.lower()] = playerId
+    return index
 
-    division = team.get('division', {})
-    division_id = division.get('id')
-    division_name = division.get('name')
-    division_link = division.get('link')
 
-    sport = team.get('sport', {})
-    sport_id = sport.get('id')
-    sport_name = sport.get('name')
-    sport_link = sport.get('link')
+def getPlayerId(playerName: str) -> int | None:
+    return _playersIndex().get(playerName.lower())
 
-    shortName = team.get('shortName')
-    franchiseName = team.get('franchiseName')
-    clubName = team.get('clubName')
-    activeStatus = team.get('active')
 
-    teamInfo = {}
-    # teamInfo['springLeague'] = springLeague
-    teamInfo['springLeague_id'] = springLeague_id
-    teamInfo['springLeague_name'] = springLeague_name
-    teamInfo['springLeague_link'] = springLeague_link
-    teamInfo['springLeague_abbreviation'] = springLeague_abbreviation
-    teamInfo['allStarStatus'] = allStarStatus
-    teamInfo['teamId'] = teamId
-    teamInfo['name'] = name
-    teamInfo['teamLink'] = teamLink
-    teamInfo['season'] = season
-    # teamInfo['venue'] = venue
-    teamInfo['venue_id'] = venue_id
-    teamInfo['venue_name'] = venue_name
-    teamInfo['venue_link'] = venue_link
-    # teamInfo['springVenue'] = springVenue
-    teamInfo['springVenue_id'] = springVenue_id
-    teamInfo['springVenue_link'] = springVenue_link
-    teamInfo['teamCode'] = teamCode
-    teamInfo['fileCode'] = fileCode
-    teamInfo['teamAbbreviation'] = teamAbbreviation
-    teamInfo['teamName'] = teamName
-    teamInfo['locationName'] = locationName
-    teamInfo['firstYearOfPlay'] = firstYearOfPlay
-    # teamInfo['league'] = league
-    teamInfo['league_id'] = league_id
-    teamInfo['league_name'] = league_name
-    teamInfo['league_link'] = league_link
-    # teamInfo['division'] = division
-    teamInfo['division_id'] = division_id
-    teamInfo['division_name'] = division_name
-    teamInfo['division_link'] = division_link
-    # teamInfo['sport'] = sport
-    teamInfo['sport_id'] = sport_id
-    teamInfo['sport_name'] = sport_name
-    teamInfo['sport_link'] = sport_link
-    teamInfo['shortName'] = shortName
-    teamInfo['franchiseName'] = franchiseName
-    teamInfo['clubName'] = clubName
-    teamInfo['activeStatus'] = activeStatus
+def printSample(endpoint: str, **kwargs) -> None:
+    sampleTitle = kwargs.get(
+        "sampleTitle", f"MLB {endpoint.capitalize()} Response Sample"
+    )
+    sampleSize = kwargs.get("size", None)
+    print(f"\n{'='*len(sampleTitle)}\n{sampleTitle}\n{'='*len(sampleTitle)}\n")
+    response = getData(endpoint, **kwargs).get(endpoint, [])
+    sampleSize = kwargs.get(
+        "sampleSize", len(response) if not sampleSize else sampleSize
+    )
+    data = response[0] if len(response) == 1 else response[0:sampleSize]
+    print(json.dumps(data, indent=2))
 
-    teams.append(teamInfo)
+
+def getLogoUrl(teamId: int | None = None, teamName: str | None = None, **kwargs) -> str:
+    teamId = teamId if teamId else getTeamId(teamName) if teamName else None
+    logoType = kwargs.get("logoType", "cap")
+    logoShade = kwargs.get("logoShade", "light")
+    return f"https://www.mlbstatic.com/team-logos/team-{logoType}-on-{logoShade}/{teamId}.svg"
+
+
+def getHeadshotUrl(playerId: int | None = None, playerName: str | None = None) -> str:
+    playerId = playerId if playerId else getPlayerId(playerName) if playerName else None
+    return f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/{playerId}/headshot/67/current"
+
+
+def printTeamTotalSeasonWins(teamName: str, season: int = None) -> None:
+    teamId = getTeamId(teamName)
+    year = season or CURR_SEASON
+    isCurrSeason = year == CURR_SEASON
+
+    gameDates = getData(
+        "schedule", teamId=teamId, startDate=f"{year}-01-01", endDate=f"{year}-12-31"
+    ).get("dates", [])
+
+    totalWins = 0
+    for games in gameDates:
+        for game in games.get("games", []):
+            teams = game.get("teams", {})
+            homeTeamResult = {
+                "id": teams.get("home", {}).get("team", {}).get("id"),
+                "isWinner": teams.get("home", {}).get("isWinner", False),
+            }
+            awayTeamResult = {
+                "id": teams.get("away", {}).get("team", {}).get("id"),
+                "isWinner": teams.get("away", {}).get("isWinner", False),
+            }
+            winningTeamId = (
+                homeTeamResult["id"]
+                if homeTeamResult["isWinner"]
+                else awayTeamResult["id"] if awayTeamResult["isWinner"] else None
+            )
+
+            if winningTeamId == teamId:
+                totalWins += 1
+
+    print(
+        f"The {teamName}{' have won ' if isCurrSeason else ' won '}{totalWins} games {'this season' if isCurrSeason else f'in {year}'}."
+    )
 
 
 
-pp(teams)
+
+
+
+
+
+# # Example: Print the linescores of all games won by the Atlanta Braves in July 2025
+# for x in [
+#     y
+#     for y in statsapi.schedule(team=144, start_date="07/01/2025", end_date="07/31/2025")
+#     if y.get("winning_team", "") == "Atlanta Braves"
+# ]:
+#     print(
+#         "%s\nWinner: %s, Loser: %s\n%s\n\n"
+#         % (
+#             x["game_date"],
+#             x["winning_team"],
+#             x["losing_team"],
+#             statsapi.linescore(x["game_id"]),
+#         )
+#     )
+
+# # Example: Print the Braves 40-man Roster on opening day of the 2025 season
+# print(
+#     "Braves 40-man roster on opening day of the 2025 season:\n%s"
+#     % statsapi.roster(
+#         144,
+#         "40Man",
+#         date=statsapi.get("season", {"seasonId": 2025, "sportId": 1})["seasons"][0][
+#             "regularSeasonStartDate"
+#         ],
+#     )
+# )
+
+# # Example: Print boxscore and linescore from Braves most recent game (which may be in progress or may not have started yet based on MLB response to 'last game' request)
+# most_recent_game_id = statsapi.last_game(144)
+# print(
+#     statsapi.boxscore(most_recent_game_id),
+#     statsapi.linescore(most_recent_game_id),
+#     sep="\n\n",
+# )
+
+# # Other Examples:
+# # - find team with longest name
+# longest_team_name = max(
+#     [
+#         x["name"]
+#         for x in statsapi.get(
+#             "teams", {"sportIds": 1, "activeStatus": "Yes", "fields": "teams,name"}
+#         )["teams"]
+#     ],
+#     key=len,
+# )
+# print(
+#     "The team with the longest name is %s, at %s characters."
+#     % (longest_team_name, len(longest_team_name))
+# )
+
+# # - print standings from July 4, 2025
+# print(statsapi.standings(date="07/04/2025"))
+
+# #  - print top 5 team leaders in walks for 2025 Braves
+# print(statsapi.team_leaders(144, "walks", limit=5, season=2025))
+
+# # - print top 10 all time career leaders in doubles
+# print(
+#     statsapi.league_leaders("doubles", statGroup="hitting", statType="career", limit=10)
+# )
+
+# # - print Ronald Acuña Jr.'s career hitting stats
+# print(
+#     statsapi.player_stats(
+#         statsapi.lookup_player("Ronald Acuña Jr.")[0]["id"],
+#         "hitting",
+#         "career",
+#     )
+# )
+
+# # - print list of scoring plays from 6/23/2024 Braves @ Yankees
+# print(statsapi.game_scoring_plays(745727))
+
+def main() -> None:
+    def jprint(data: dict | list) -> None:
+        print(json.dumps(data, indent=2))
+
+
+    title = "Running Development Testing"
+    border = "~ " * (len(title) // 2 + 10)
+    print(
+        f"\n{border}",
+        f"{title:^{int((len(border)))}}",
+        f"{border}\n\n",
+        sep="\n",
+    )
+
+
+    # Example: Print the linescores of all games won by the Atlanta Braves in July 2025
+    # for x in [
+    #     y
+    #     for y in statsapi.schedule(team=144, start_date="07/01/2025", end_date="07/31/2025")
+    #     if y.get("winning_team", "") == "Atlanta Braves"
+    # ]:
+    #     print(
+    #         "%s\nWinner: %s, Loser: %s\n%s\n\n"
+    #         % (
+    #             x["game_date"],
+    #             x["winning_team"],
+    #             x["losing_team"],
+    #             statsapi.linescore(x["game_id"]),
+    #         )
+    #     )
+    # for x in [
+    #     y
+    #     for y in getData("schedule", teamId=144, start_date="07/01/2025", end_date="07/31/2025").get("dates", [])
+    #     # if y.get("winning_team", "") == "Atlanta Braves"
+    # ]:
+    #     print(
+    #         "%s\nWinner: %s, Loser: %s\n%s\n\n"
+    #         % (
+    #             x["game_date"],
+    #             x["winning_team"],
+    #             x["losing_team"],
+    #             statsapi.linescore(x["game_id"]),
+    #         )
+    #     )
+    # jprint(statsapi.schedule(team=144, date="7/2/2025"))
+    jprint(statsapi.schedule(team=144, start_date="7/1/2025", end_date="7/5/2025"))
+    # jprint(getData("schedule", teamId=144, date="7/2/2025"))
+    # dates = getData("schedule", teamId=144, startDate="7/1/2025", endDate="7/5/2025", hydrate="linescore").get("dates", [])
+    dates = getData("schedule", teamId=144, startDate="7/1/2025", endDate="7/5/2025", hydrate="linescore").get("dates", [])
+    games = []
+    linescores = []
+    for date in dates:
+        for game in date.get("games", []):
+            gameDetails = {
+                "game_id": game.get("gamePk", ""),
+                "game_datetime": game.get("gameDate", ""),
+                "game_date": game.get("gameDate", "")[:10],
+                "game_type": game.get("gameType", ""),
+                "status": game.get("status", {}).get("detailedState", ""),
+                "away_name": game.get("teams", {}).get("away", {}).get("team", {}).get("name", ""),
+                "home_name": game.get("teams", {}).get("home", {}).get("team", {}).get("name", ""),
+                "away_id": game.get("teams", {}).get("away", {}).get("team", {}).get("id", ""),
+                "home_id": game.get("teams", {}).get("home", {}).get("team", {}).get("id", ""),
+                "doubleheader": game.get("doubleHeader", "N"),
+                "game_num": game.get("gameNumber", 1),
+                "home_probable_pitcher": game.get("teams", {}).get("home", {}).get("probablePitcher", {}).get("fullName", ""),
+                "away_probable_pitcher": game.get("teams", {}).get("away", {}).get("probablePitcher", {}).get("fullName", ""),
+                "home_pitcher_note": game.get("teams", {}).get("home", {}).get("pitcherNote", ""),
+                "away_pitcher_note": game.get("teams", {}).get("away", {}).get("pitcherNote", ""),
+                "away_score": game.get("teams", {}).get("away", {}).get("score", 0),
+                "home_score": game.get("teams", {}).get("home", {}).get("score", 0),
+                "current_inning": game.get("linescore", {}).get("currentInning", 0),
+                "inning_state": game.get("linescore", {}).get("inningState", ""),
+                "venue_id": game.get("venue", {}).get("id", ""),
+                "venue_name": game.get("venue", {}).get("name", ""),
+                "national_broadcasts": game.get("broadcasts", []),
+                "series_status": game.get("seriesStatus", ""),
+                "winning_team": game.get("seriesStatus", {}).get("winningTeam", ""),
+                "losing_team": game.get("seriesStatus", {}).get("losingTeam", ""),
+                "winning_pitcher": game.get("seriesStatus", {}).get("winningPitcher", ""),
+                "losing_pitcher": game.get("seriesStatus", {}).get("losingPitcher", ""),
+                "save_pitcher": game.get("seriesStatus", {}).get("savePitcher", ""),
+                "summary": f"{game.get('gameDate', '')[:10]} - {game.get('teams', {}).get('away', {}).get('team', {}).get('name', '')} ({game.get('teams', {}).get('away', {}).get('score', 0)}) @ {game.get('teams', {}).get('home', {}).get('team', {}).get('name', '')} ({game.get('teams', {}).get('home', {}).get('score', 0)}) ({game.get('status', {}).get('detailedState', '')})"
+            }
+            games.append(gameDetails)
+    # for date in dates:
+    #     for game in date.get("games", []):
+    #         winningTeam = game.get("seriesStatus", {}).get("winningTeam", "")
+    print("\n\n","="*40,"\n\n")
+    jprint(games)
+    # gameDates = []
+    # for game in [games for games in dates]:
+    #     gameData = {
+    #         "gameId": game.get("gamePk", ""),
+    #         "gameLink": game.get("link", ""),
+    #         "gameDate": game.get("gameDate", ""),
+    #         "gameStatus": game.get("status", {}).get("detailedState", "")
+    #     }
+    #     gameDates.append(gameData)
+    
+    # jprint(dates)
+    # jprint(gameDates)
+
+
+        # "game_datetime": "2025-07-02T23:15:00Z",
+        # "game_date": "2025-07-02",
+        # "game_type": "R",
+        # "status": "Final",
+        # "away_name": "Los Angeles Angels",
+        # "home_name": "Atlanta Braves",
+        # "away_id": 108,
+        # "home_id": 144,
+        # "doubleheader": "N",
+        # "game_num": 1,
+        # "home_probable_pitcher": "Didier Fuentes",
+        # "away_probable_pitcher": "Yusei Kikuchi",
+        # "home_pitcher_note": "",
+        # "away_pitcher_note": "",
+        # "away_score": 3,
+        # "home_score": 8,
+        # "current_inning": 9,
+        # "inning_state": "Top",
+        # "venue_id": 4705,
+        # "venue_name": "Truist Park",
+        # "national_broadcasts": [],
+        # "series_status": "Series tied 1-1",
+        # "winning_team": "Atlanta Braves",
+        # "losing_team": "Los Angeles Angels",
+        # "winning_pitcher": "Aaron Bummer",
+        # "losing_pitcher": "Ryan Zeferjahn",
+        # "save_pitcher": null,
+        # "summary": "2025-07-02 - Los Angeles Angels (3) @ Atlanta Braves (8) (Final)"
+        
+    
+    # gameData = {
+    #     "game_id": data.get(""),
+    #     "game_datetime": "2025-07-02T23:15:00Z",
+    #     "game_date": "2025-07-02",
+    #     "game_type": "R",
+    #     "status": "Final",
+    #     "away_name": "Los Angeles Angels",
+    #     "home_name": "Atlanta Braves",
+    #     "away_id": 108,
+    #     "home_id": 144,
+    #     "doubleheader": "N",
+    #     "game_num": 1,
+    #     "home_probable_pitcher": "Didier Fuentes",
+    #     "away_probable_pitcher": "Yusei Kikuchi",
+    #     "home_pitcher_note": "",
+    #     "away_pitcher_note": "",
+    #     "away_score": 3,
+    #     "home_score": 8,
+    #     "current_inning": 9,
+    #     "inning_state": "Top",
+    #     "venue_id": 4705,
+    #     "venue_name": "Truist Park",
+    #     "national_broadcasts": [],
+    #     "series_status": "Series tied 1-1",
+    #     "winning_team": "Atlanta Braves",
+    #     "losing_team": "Los Angeles Angels",
+    #     "winning_pitcher": "Aaron Bummer",
+    #     "losing_pitcher": "Ryan Zeferjahn",
+    #     "save_pitcher": null,
+    #     "summary": "2025-07-02 - Los Angeles Angels (3) @ Atlanta Braves (8) (Final)"
+    # }
+    
+    # for hydration in hydrations:
+    #     print("\n\n###",
+    #           f"GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=144&date=2025-03-27&hydrate={hydration}",
+    #           sep="\n"
+    #     )
+
+
+
+
+if __name__ == "__main__":
+    main()

@@ -6,6 +6,8 @@ import statsapi
 def get_notes(endpoint):
     print(statsapi.notes(endpoint))
 
+print(get_notes("schedule"))
+
 
 class Team:
     def __init__(self):
